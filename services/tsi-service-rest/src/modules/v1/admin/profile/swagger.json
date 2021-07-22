@@ -1,0 +1,27 @@
+{
+  "schemas": {
+    "UpdateAdminDTO": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "postalCode": {
+          "type": "string"
+        },
+        "phoneNumber": {
+          "type": "string"
+        },
+        "landline": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

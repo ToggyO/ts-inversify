@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <!-- <meta name="keywords" content="">
+  <meta name="author" content=""> -->
+  <title>easyGuide | Email</title>
+  <style>
+    body{margin: 0;}
+    @media (max-width: 767px){
+      table{width: 100% !important;}
+    }
+  </style>
+</head>
+
+<body>
+  <div style="background-color:#fff; background-image: url('cid:{{attach 'tickets' 'background-img.png'}}');background-repeat-y: no-repeat; background-attachment: fixed; background-size: contain;">
+    <table cellpadding="0" cellspacing="0" style="width: 643px;
+        margin: 0px auto;
+        border: transparent;
+        font-family: arial;
+        text-align: left;
+        border-radius: 20px;">
+      <tr>
+        <th colspan="2">
+          <table style="width: 100%; background: #fff; border-top-left-radius: 20px; border-top-right-radius: 20px; padding: 0px;" cellpadding="0" cellspacing="0">
+            <tr><td style="padding: 10px; text-align: center;  background: #ff6600; border-top-left-radius: 20px; border-top-right-radius: 20px">
+              <a href="{{appDomain}}">
+                <img src="cid:{{attach 'tickets' 'easyguide.png'}}"
+                     width="200px" alt="easyGuide">
+              </a></td></tr>
+            <tr><td style="padding: 35px 15px 15px;  text-align: center;color: #353534;  font-size: 25px;
+                         font-weight: normal;">Hi, {{user}},</td>
+            </tr>
+            <tr>
+              <td style="text-align: center;color: #353534; font-weight: normal; padding: 15px 15px 15px;">Thank you for purchasing your tickets with easyGuide! </td>
+            </tr>
+            <tr><td style="text-align: center;color: #353534; font-weight: normal; padding: 5px 15px 15px;">
+              We have attached them to this email, but you can also find them within your <span style="font-weight: bold;">Bookings</span> section of the mobile app or website.
+            </td>
+            </tr>
+            <tr><td style="text-align: center;color: #353534; font-weight: normal; padding: 5px 15px 15px;">If you run into any difficulties along the way, simply send us a message at hello@easy-guide.co.uk or via the help section.
+            </td>
+            </tr>
+            <tr>
+              <td style="text-align:center;color:#353534;font-weight:normal;padding:0 20px">
+                Our Partner, Headout, will email you your tickets within 30-45 minutes.
+              </td>
+            </tr>
+            <tr>
+              <td style="text-align:center;color:#353534;font-weight:normal;padding:0 20px">
+                We hope you enjoy your experience!
+              </td>
+            </tr>
+            <tr>
+              <td style="text-align: center;color: #353534; font-weight: normal; padding-top: 20px; padding-bottom: 20px;"><span style="color: #ff6100">Order Number: {{tickets.order.orderUuid}}</span></td>
+            </tr>
+            <tr>
+              <td>
+                {{#each tickets.items}}
+                  <table style="font-size:12px;font-weight:normal;padding:10px;margin:15px auto;width:480px">
+                    <thead>
+                    <tr>
+                      <th>{{name}}</th>
+                      <th style="text-align:right">{{ticketsCount}} Tickets </th>
+                    </tr>
+                    <tr>
+                      <th style="padding-bottom:10px"></th>
+                      <th style="text-align:right;padding-bottom:10px; width: 50%">{{date}} {{time}}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {{#each productOptions}}
+                      <tr>
+                        <td>{{name}} x {{orderedQty}}</td>
+                        <td style="text-align:right">£ {{totalPrice}}</td>
+                      </tr>
+                      <tr>
+                      </tr>
+                    {{/each}}
+                    </tbody>
+                  </table>
+                {{/each}}
+                <table style="font-size:12px;font-weight:normal;padding:10px;margin:15px auto;width:480px">
+                  <tbody>
+                  <tr>
+                    <td style="padding-top:20px;font-weight:bold">Subtotal</td>
+                    <td style="padding-top:20px;text-align:right">£ {{tickets.order.subTotal}}</td>
+                  </tr>
+                  <tr>
+                    <td style="font-weight:bold">Booking Charge</td>
+                    <td style="text-align:right">£ {{tickets.order.gatewayCharges}}</td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" style="border-bottom:1px solid #ccc"></td>
+                  </tr>
+                  <tr>
+                    <td style="padding-top:25px;font-weight:bold">Total Paid</td>
+                    <td style="padding-top:25px;font-weight:bold;text-align:right">£ {{tickets.order.grandTotal}}</td>
+                  </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+
+
+<!--            {{#each tickets}}-->
+<!--              <tr>-->
+<!--                <td style="text-align: center;color: #353534; font-weight: normal; padding-top: 0px; padding-bottom:20px; line-height: 20px;">-->
+<!--                  <span style="font-weight: bold;">{{name}}<br/></span>{{date}}<br/>{{time}}<br/>General-->
+<!--                </td>-->
+<!--              </tr>-->
+<!--              <tr>-->
+<!--                <td style="text-align: center;color: #353534; font-weight: bold; padding-top: 10px; padding-bottom: 10px; font-weight: bold;"><span>Where to go? </span></td>-->
+<!--              </tr>-->
+<!--              <tr>-->
+<!--                <td style="text-align: center;color: #353534; font-weight: normal;  padding-bottom:20px">-->
+<!--                  <span>{{address}}</span>-->
+<!--                </td>-->
+<!--              </tr>-->
+<!--            {{/each}}-->
+            <tr>
+              <td>
+                <table style="line-height: 24px; min-width: 65%;  background: #fff; color: #353534; font-weight: normal; padding: 15px 20px;border-radius: 10px; text-align: center; margin:0 auto;">
+                  <tr><td style="padding-top: 10px"><a href="#"><img src="cid:{{attach 'tickets' 'ios_icon.png'}}" alt=""></a> <a href="#">
+                    <img src="cid:{{attach 'tickets' 'google_play.png'}}" alt=""></a></td></tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </th>
+      </tr>
+      <tr>
+        <td style="background: transparent; color: #fff;">
+          <table cellpadding="0" cellspacing="0" width="100%">
+            <tr>
+              <td style="text-align: center; background: #ff6600; border-bottom-left-radius: 20px; border-bottom-right-radius: 20px; padding: 10px 0">
+                <a href="{{appDomain}}">
+                  <img src="cid:{{attach 'tickets' 'easyguide1.png'}}" width="250px" alt="easyGuide">
+                </a>
+              </td>
+            </tr>
+            <tr><td style="font-size: 14px; background: #edf0f6; line-height: 15px; padding-top: 20px; padding-bottom: 5px; text-align: center; color: #000">
+              10 Ansdell Street, Kensington, London, W8 5BN<br/> support@easy-guide.co.uk
+            </td></tr>
+            <tr><td style="font-size: 14px; text-align: center; background: #edf0f6">
+              <table style="margin: auto;">
+                <tr>
+                  <td style="padding: 10px">
+                    <a href="https://www.facebook.com/easyGuideUK/" style="text-decoration: none;">
+                      <img src="cid:{{attach 'tickets' 'face.png'}}" alt="" width="50px">
+                    </a>
+                    <a href="https://www.instagram.com/easy_guide/">
+                      <img src="cid:{{attach 'tickets' 'insta.png'}}" alt="" width="50px" style="text-decoration: none;">
+                    </a>
+                  </td>
+                </tr>
+              </table>
+            </td></tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </div>
+</body>
+</html>

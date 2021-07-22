@@ -1,0 +1,128 @@
+{
+  "schemas": {
+    "CreatePromoCodeDTO": {
+      "type": "object",
+      "properties": {
+        "couponName": {
+          "type": "string"
+        },
+        "promoCode": {
+          "type": "string"
+        },
+        "couponQty": {
+          "type": "number"
+        },
+        "tAndC": {
+          "type": "string"
+        },
+        "couponType": {
+          "type": "string"
+        },
+        "couponValue": {
+          "type": "number"
+        },
+        "availableDays": {
+          "type": "string"
+        },
+        "startDate": {
+          "type": "string"
+        },
+        "endDate": {
+          "type": "string"
+        },
+        "startTime": {
+          "type": "string"
+        },
+        "endTime": {
+          "type": "string"
+        },
+        "includeApiData": {
+          "type": "number"
+        },
+        "userRedemptionLimit": {
+          "type": "number"
+        },
+        "minCartAmount": {
+          "type": "number"
+        }
+      }
+    },
+    "PromoCode": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "couponName": {
+          "type": "string"
+        },
+        "generationType": {
+          "type": "string"
+        },
+        "promoCode": {
+          "type": "string"
+        },
+        "couponQty": {
+          "type": "number"
+        },
+        "tAndC": {
+          "type": "string"
+        },
+        "couponType": {
+          "type": "string"
+        },
+        "couponValue": {
+          "type": "number"
+        },
+        "availableDays": {
+          "type": "string"
+        },
+        "startDate": {
+          "type": "string"
+        },
+        "endDate": {
+          "type": "string"
+        },
+        "startTime": {
+          "type": "string"
+        },
+        "endTime": {
+          "type": "string"
+        },
+        "deviceType": {
+          "type": "number"
+        },
+        "excludeWalletPoint": {
+          "type": "number"
+        },
+        "includeApiData": {
+          "type": "number"
+        },
+        "userRedemptionLimit": {
+          "type": "number"
+        },
+        "remainUserRedemptionLimit": {
+          "type": "number"
+        },
+        "minCartAmount": {
+          "type": "number"
+        },
+        "usesCount": {
+          "type": "number"
+        },
+        "batchQty": {
+          "type": "number"
+        },
+        "status": {
+          "type": "number"
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

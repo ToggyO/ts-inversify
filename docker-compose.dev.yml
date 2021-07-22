@@ -1,0 +1,40 @@
+version: '3.3'
+services:
+  tsi-service-mysql-dev:
+    container_name: tsi-service-mysql-dev
+    image: mysql:5.7
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: ${TSI_MYSQL_DATABASE}
+      MYSQL_USER: ${TSI_MYSQL_USER}
+      MYSQL_PASSWORD: ${TSI_MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${TSI_MYSQL_ROOT_PASSWORD}
+    volumes:
+#      - './mysql_dump:/docker-entrypoint-initdb.d:'
+      - './volume-dev-mysql:/var/lib/mysql'
+    ports:
+      - ${TSI_MYSQL_EXTERNAL_PORT}:${TSI_MYSQL_PORT}
+
+  tsi-service-redis-dev:
+    container_name: tsi-service-redis-dev
+    image: redis:6.0.8-alpine
+    restart: unless-stopped
+    command:
+      - 'redis-server'
+      - '--port ${TSI_REDIS_PORT}'
+      - '--requirepass ${TSI_REDIS_PASSWORD}'
+      - '--loglevel ${REDIS_LOGLEVEL:-warning}'
+      - '--databases 1'
+      - '--save 900 1'
+      - '--save 300 10'
+      - '--save 60 10000'
+      - '--maxmemory ${REDIS_MAXMEM:-50mb}'
+      - '--maxmemory-policy ${REDIS_POLICY:-noeviction}'
+    volumes:
+      - 'tsi-service-redis-dev:/data/redis'
+    ports:
+      - ${TSI_REDIS_EXTERNAL_PORT}:${TSI_REDIS_PORT}
+
+volumes:
+  tsi-service-mysql-dev:
+  tsi-service-redis-dev:

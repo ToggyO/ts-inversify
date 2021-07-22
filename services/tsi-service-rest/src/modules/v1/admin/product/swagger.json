@@ -1,0 +1,112 @@
+{
+  "schemas": {
+    "CreateProductDTO": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "articleType": {
+          "type": "string"
+        },
+        "categoryIds": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "ratingAvg": {
+          "type": "number"
+        },
+        "ratingCount": {
+          "type": "number"
+        },
+        "status": {
+          "type": "number"
+        },
+        "sourceId": {
+          "type": "number"
+        },
+        "metaKeyword": {
+          "type": "string"
+        },
+        "metaDescription": {
+          "type": "string"
+        }
+      }
+    },
+    "CreateProductDetailsDTO": {
+      "type": "object",
+      "properties": {
+        "startAddressLine1": {
+          "type": "string"
+        },
+        "startAddressLine2": {
+          "type": "string"
+        },
+        "startCity": {
+          "type": "string"
+        },
+        "startCountry": {
+          "type": "string"
+        },
+        "startPostalCode": {
+          "type": "string"
+        },
+        "startLatitude": {
+          "type": "string"
+        },
+        "startLongitude": {
+          "type": "string"
+        },
+        "hasMobileTicket": {
+          "type": "number"
+        },
+        "hasAudioAvailable": {
+          "type": "number"
+        }
+      }
+    },
+    "ProductMetaInfoDTO": {
+      "type": "object",
+      "properties": {
+        "Summary": {
+          "type": "string"
+        },
+        "Highlights": {
+          "type": "string"
+        },
+        "FAQs": {
+          "type": "string"
+        },
+        "Cancellation Policy": {
+          "type": "string"
+        },
+        "Ticket Delivery Information": {
+          "type": "string"
+        },
+        "Inclusions": {
+          "type": "string"
+        },
+        "Exclusions": {
+          "type": "string"
+        }
+      }
+    },
+    "ChangeGalleryPositionDTO": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "position": {
+          "type": "number"
+        },
+        "type": {
+          "type": "string",
+          "enum": ["web","mobile"]
+        }
+      }
+    }
+  }
+}

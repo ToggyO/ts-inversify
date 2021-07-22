@@ -1,0 +1,45 @@
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module"
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "plugins": [
+    "@typescript-eslint",
+    "import",
+    "prettier"
+  ],
+  "settings": {
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts"]
+    },
+    "import/resolver": {
+      "typescript": {
+        "alwaysTryTypes": true
+      }
+    }
+  },
+  "rules": {
+    "no-console": "warn", // Remember, this means error!
+    "import/no-unresolved": "error",
+    "arrow-body-style": ["error", "as-needed"],
+    "arrow-parens": "error",
+    "curly": ["warn", "all"],
+    "func-names": "off",
+    "import/prefer-default-export": "off",
+    "max-len": ["error", { "code": 120 }],
+    "no-param-reassign": "off",
+    "no-plusplus": "off",
+    "no-tabs": "off",
+    "no-underscore-dangle": "off",
+    "@typescript-eslint/no-empty-function": ["error", { "allow": ["methods"] }],
+    "@typescript-eslint/no-var-requires": "off"
+  }
+}

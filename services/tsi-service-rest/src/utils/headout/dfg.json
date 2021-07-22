@@ -1,0 +1,41 @@
+{
+  "variantId": 21810,
+  "inventoryId": 75883552,
+  "customersDetails": {
+    "count": 1,
+    "customers": [
+      {
+        "personType": "Adult",
+        "isPrimary": true,
+        "inputFields": [
+          {
+            "id": "NAME",
+            "name": "Full Name",
+            "value": "Slava Ukraine"
+          },
+          {
+            "id": "PHONE",
+            "name": "Phone",
+            "value": "+78005553535"
+          },
+          {
+            "id": "EMAIL",
+            "name": "Email",
+            "value": "kivehi3867@abbuzz.com"
+          }
+        ]
+      }
+    ]
+  },
+  "variantInputFields": [
+    {
+      "id": "NAME",
+      "name": "NAME",
+      "value": "PRIMARY_CUSTOMER"
+    }
+  ],
+  "price": {
+    "amount": "59.70",
+    "currencyCode": "GBP"
+  }
+}

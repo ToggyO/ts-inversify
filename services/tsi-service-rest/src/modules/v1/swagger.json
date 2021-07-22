@@ -1,0 +1,20 @@
+{
+  "schemas": {
+    "productIncludeLiterals": {
+      "type": "object",
+      "properties": {
+        "Product": {
+          "type": "string",
+          "enum": [
+            "productDetails",
+            "productMedia",
+            "productMetaInfos",
+            "productRatings",
+            "productViews",
+            "variantsOfProducts"
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "schemas": {
+    "City": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "name": {
+          "type": "string"
+        },
+        "code": {
+          "type": "string"
+        },
+        "top": {
+          "type": "boolean"
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "string"
+        }
+      }
+    },
+    "UpdateCityTop": {
+      "type": "object",
+      "properties": {
+        "topDestination": {
+          "type": "boolean"
+        },
+        "topToVisit": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

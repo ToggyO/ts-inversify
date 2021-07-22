@@ -1,0 +1,39 @@
+{
+  "schemas": {
+    "ECategory": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "imageUrl": {
+          "type": "string"
+        },
+        "status": {
+          "type": "number"
+        },
+        "position": {
+          "type": "number"
+        },
+        "slug": {
+          "type": "string"
+        },
+        "langCode": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,158 @@
+version: '3.5'
+services:
+  tsi-service-redis-prod:
+    container_name: tsi-service-redis-prod
+    image: redis:6.0.8-alpine
+    restart: unless-stopped
+    command:
+      - 'redis-server'
+      - '--port ${TSI_REDIS_PORT}'
+      - '--requirepass ${TSI_REDIS_PASSWORD}'
+      - '--loglevel ${REDIS_LOGLEVEL:-warning}'
+      - '--databases 1'
+      - '--save 900 1'
+      - '--save 300 10'
+      - '--save 60 10000'
+      - '--maxmemory ${REDIS_MAXMEM:-50mb}'
+      - '--maxmemory-policy ${REDIS_POLICY:-noeviction}'
+    volumes:
+      - '../ts-inversify-volumes/volume-stage-redis:/data/redis'
+    expose:
+      - ${TSI_REDIS_PORT}
+    # ports:
+    #   - ${TSI_REDIS_PORT}:${TSI_REDIS_PORT}
+    network_mode: 'host'
+
+  tsi-service-payment-prod:
+    container_name: tsi-service-payment-prod
+    build: ./services/tsi-service-payment
+    restart: on-failure
+    environment:
+      NODE_ENV: ${NODE_ENV}
+      TSI_PAYMENT_HOST: ${TSI_PAYMENT_HOST}
+      TSI_PAYMENT_PORT: ${TSI_PAYMENT_PORT}
+      TSI_PAYMENT_EXTERNAL_PORT: ${TSI_PAYMENT_EXTERNAL_PORT}
+      STRIPE_PUBLIC_KEY: ${STRIPE_PUBLIC_KEY}
+      STRIPE_PRIVATE_KEY: ${STRIPE_PRIVATE_KEY}
+      STRIPE_API_VERSION: ${STRIPE_API_VERSION}
+    expose: 
+      - ${TSI_PAYMENT_PORT}
+    # ports:
+    #   - '127.0.0.1:${TSI_PAYMENT_EXTERNAL_PORT}:${TSI_PAYMENT_PORT}'
+    volumes:
+      - '../ts-inversify-logs/log-service-payment:/usr/app/log'
+    network_mode: 'host'
+
+  tsi-service-notification-prod:
+    container_name: tsi-service-notification-prod
+    build: ./services/tsi-service-notification
+    environment:
+      NODE_ENV: ${NODE_ENV}
+      API_DOMAIN: ${API_DOMAIN}
+      TSI_NOTIFICATION_HOST: ${TSI_NOTIFICATION_HOST}
+      TSI_NOTIFICATION_PORT: ${TSI_NOTIFICATION_PORT}
+      MAIL_HOST: ${MAIL_HOST}
+      MAIL_PORT: ${MAIL_PORT}
+      MAIL_USERNAME: ${MAIL_USERNAME}
+      MAIL_PASSWORD: ${MAIL_PASSWORD}
+      MAIL_FROM_NAME: ${MAIL_FROM_NAME}
+      MAIL_FROM_ADDRESS: ${MAIL_FROM_ADDRESS}
+      SUPPORT_EMAIL_CONTACT_US: ${SUPPORT_EMAIL_CONTACT_US}
+      TSI_REDIS_HOST: ${TSI_REDIS_HOST}
+      TSI_REDIS_PASSWORD: ${TSI_REDIS_PASSWORD}
+      TSI_REDIS_PORT: ${TSI_REDIS_PORT}
+      TSI_REDIS_EXTERNAL_PORT: ${TSI_REDIS_EXTERNAL_PORT}
+      QUEUE_NAME_MAIL: ${QUEUE_NAME_MAIL}
+      QUEUE_JOB_NAME_SEND_EMAIL: ${QUEUE_JOB_NAME_SEND_EMAIL}
+    restart: on-failure
+    expose: 
+      - ${TSI_NOTIFICATION_PORT}
+    # ports:
+    #   - '127.0.0.1:${TSI_NOTIFICATION_EXTERNAL_PORT}:${TSI_NOTIFICATION_PORT}'
+    volumes:
+      - '../ts-inversify-logs/log-service-notification:/usr/app/log'
+    depends_on:
+      - tsi-service-redis-prod
+    network_mode: 'host'
+
+  tsi-service-data-prod:
+    container_name: tsi-service-data-prod
+    build:
+      context: ./services/tsi-service-data
+      dockerfile: Dockerfile
+      args:
+        NODE_ENV: ${NODE_ENV}
+        IDENTITY_HEADER: ${IDENTITY_HEADER}
+        CRYPTO_SECRET: ${CRYPTO_SECRET}
+        TSI_DATA_HOST: ${TSI_DATA_HOST}
+        TSI_DATA_PORT: ${TSI_DATA_PORT}
+        TSI_MYSQL_HOST: ${TSI_MYSQL_HOST}
+        TSI_MYSQL_PORT: ${TSI_MYSQL_PORT}
+        TSI_MYSQL_EXTERNAL_PORT: ${TSI_MYSQL_EXTERNAL_PORT}
+        TSI_MYSQL_USER: ${TSI_MYSQL_USER}
+        TSI_MYSQL_DATABASE: ${TSI_MYSQL_DATABASE}
+        TSI_MYSQL_PASSWORD: ${TSI_MYSQL_PASSWORD}
+        TSI_MYSQL_ROOT_PASSWORD: ${TSI_MYSQL_ROOT_PASSWORD}
+    restart: on-failure
+    expose: 
+      - ${TSI_DATA_PORT}
+    # ports:
+    #   - ${TSI_DATA_PORT}:${TSI_DATA_PORT}
+    volumes:
+      - '../ts-inversify-logs/log-service-data:/usr/app/log'
+    network_mode: 'host'
+
+  tsi-service-rest-prod:
+    container_name: tsi-service-rest-prod
+    build: ./services/tsi-service-rest
+    restart: on-failure
+    environment:
+      NODE_ENV: ${NODE_ENV}
+      GOOGLE_APP_CLIENT_ID: ${GOOGLE_APP_CLIENT_ID}
+      GOOGLE_APP_CLIENT_SECRET: ${GOOGLE_APP_CLIENT_SECRET}
+      FACEBOOK_APP_CLIENT_ID: ${FACEBOOK_APP_CLIENT_ID}
+      FACEBOOK_APP_CLIENT_SECRET: ${FACEBOOK_APP_CLIENT_SECRET}
+      FACEBOOK_APP_GRAPH_API_VERSION: ${FACEBOOK_APP_GRAPH_API_VERSION}
+      IDENTITY_HEADER: ${IDENTITY_HEADER}
+      ROUTE_PREFIX: ${ROUTE_PREFIX}
+      API_DOMAIN: ${API_DOMAIN}
+      CLIENT_APP_DOMAIN: ${CLIENT_APP_DOMAIN}
+      ADMIN_APP_DOMAIN: ${ADMIN_APP_DOMAIN}
+      SESSION_SECRET: ${SESSION_SECRET}
+      JWT_SECRET: ${JWT_SECRET}
+      SESSION_MAX_AGE: ${SESSION_MAX_AGE}
+      UPLOAD_MAX_FILESIZE_MB: ${UPLOAD_MAX_FILESIZE_MB}
+      CORS_WHITE_LIST: ${CORS_WHITE_LIST}
+      RESTORE_PASSWORD_LINK: ${RESTORE_PASSWORD_LINK}
+      RESTORE_PASSWORD_ADMIN_LINK: ${RESTORE_PASSWORD_ADMIN_LINK}
+      CONTACT_US_LINK: ${CONTACT_US_LINK}
+      TSI_REST_API_VERSION: ${TSI_REST_API_VERSION}
+      TSI_REST_HOST: ${TSI_REST_HOST}
+      TSI_REST_PORT: ${TSI_REST_PORT}
+      TSI_DATA_DOCKER_HOST: ${TSI_DATA_DOCKER_HOST}
+      TSI_DATA_HOST: ${TSI_DATA_HOST}
+      TSI_DATA_PORT: ${TSI_DATA_PORT}
+      TSI_PAYMENT_DOCKER_HOST: ${TSI_PAYMENT_DOCKER_HOST}
+      TSI_PAYMENT_HOST: ${TSI_PAYMENT_HOST}
+      TSI_PAYMENT_PORT: ${TSI_PAYMENT_PORT}
+      QUEUE_NAME_MAIL: ${QUEUE_NAME_MAIL}
+      QUEUE_JOB_NAME_SEND_EMAIL: ${QUEUE_JOB_NAME_SEND_EMAIL}
+      TSI_REDIS_HOST: ${TSI_REDIS_HOST}
+      TSI_REDIS_PASSWORD: ${TSI_REDIS_PASSWORD}
+      TSI_REDIS_PORT: ${TSI_REDIS_PORT}
+      TSI_REDIS_EXTERNAL_PORT: ${TSI_REDIS_EXTERNAL_PORT}
+      HEADOUT_AUTH_HEADER: ${HEADOUT_AUTH_HEADER}
+      HEADOUT_CURRENT_URL: ${HEADOUT_CURRENT_URL}
+      HEADOUT_CURRENT_KEY: ${HEADOUT_CURRENT_KEY}
+      CLOUDINARY_CLOUD_NAME: ${CLOUDINARY_CLOUD_NAME}
+      CLOUDINARY_API_KEY: ${CLOUDINARY_API_KEY}
+      CLOUDINARY_API_SECRET: ${CLOUDINARY_API_SECRET}
+    expose: 
+      - ${TSI_REST_PORT}
+    # ports:
+    #   - '127.0.0.1:${TSI_REST_EXTERNAL_PORT}:${TSI_REST_PORT}'
+    volumes:
+      - '../ts-inversify-logs/log-service-rest:/usr/app/log'
+    depends_on:
+      - tsi-service-redis-prod
+    network_mode: 'host'

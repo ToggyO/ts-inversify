@@ -1,0 +1,111 @@
+{
+  "schemas": {
+    "CreateUser": {
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "phoneNumber": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        }
+      }
+    },
+    "CreateUserWithPassword": {
+      "type": "object",
+      "properties": {
+        "password": {
+          "type": "string"
+        }
+      }
+    },
+    "UpdateUser": {
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "dob": {
+          "type": "string"
+        },
+        "phoneNumber": {
+          "type": "string"
+        }
+      }
+    },
+    "User": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "referralCode": {
+          "type": "string"
+        },
+        "socialId": {
+          "type": "string"
+        },
+        "socialType": {
+          "type": "string"
+        },
+        "countryId": {
+          "type": "number"
+        },
+        "phoneNumber": {
+          "type": "string"
+        },
+        "dob": {
+          "type": "string"
+        },
+        "age": {
+          "type": "number"
+        },
+        "gender": {
+          "type": "string"
+        },
+        "profileImage": {
+          "type": "string"
+        },
+        "status": {
+          "type": "number"
+        },
+        "deviceType": {
+          "type": "string"
+        },
+        "rememberToken": {
+          "type": "string"
+        },
+        "stripeCustomerToken": {
+          "type": "string"
+        },
+        "langCode": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

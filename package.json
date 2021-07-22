@@ -1,0 +1,30 @@
+{
+  "name": "ts-inverisfy-backend",
+  "version": "1.0.0",
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/mgrsys/easeguide-backend.git"
+  },
+  "workspaces": [
+    "services/*"
+  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "lerna run --concurrency 1 --stream precommit --since HEAD --exclude-dependents"
+    }
+  },
+  "devDependencies": {
+    "@types/node": "^14.11.1",
+    "husky": "^4.3.0",
+    "lerna": "^3.22.1"
+  },
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/mgrsys/easeguide-backend#readme",
+  "dependencies": {
+    "@types/lodash.get": "^4.4.6",
+    "iterare": "^1.2.1",
+    "lodash.get": "^4.4.2"
+  }
+}

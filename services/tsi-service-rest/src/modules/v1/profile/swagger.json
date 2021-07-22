@@ -1,0 +1,68 @@
+{
+  "schemas": {
+    "ChangePassword": {
+      "type": "object",
+      "properties": {
+        "oldPassword": {
+          "type": "string"
+        },
+        "newPassword": {
+          "type": "string"
+        }
+      }
+    },
+    "BookingOfUserDTO": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "order_id": {
+          "type":  "number"
+        },
+        "product_id": {
+          "type":  "number"
+        },
+        "headout_product_id": {
+          "type":  "number"
+        },
+        "product_name": {
+          "type":"string"
+        },
+        "headout_variant_id": {
+          "type":  "number"
+        },
+        "variant_name": {
+          "type": "string"
+        },
+        "headout_variant_item_id": {
+          "type":  "number"
+        },
+        "product_options": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/AgeGroupOptions"
+          }
+        },
+        "is_booked": {
+          "type":  "number"
+        },
+        "booking_id": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "updated_at": {
+          "type": "string"
+        },
+        "inputFields_id": {
+          "type": "string"
+        },
+        "inputFields_level": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

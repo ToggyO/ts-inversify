@@ -1,0 +1,1 @@
+export { MailQueueConsumer } from './MailQueueConsumer';

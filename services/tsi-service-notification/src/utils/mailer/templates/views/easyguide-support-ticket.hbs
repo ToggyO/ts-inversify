@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <!-- <meta name="keywords" content="">
+  <meta name="author" content=""> -->
+  <title>EasyGuide | Email</title>
+  <style>
+    body{margin: 0;}
+    @media (max-width: 767px){
+      table{width: 100% !important;}
+    }
+  </style>
+</head>
+<body>
+<div style="background-color:#fff; background-image: url('cid:{{attach 'support-ticket' 'background-img.png'}}'); background-repeat-y: no-repeat; background-attachment: fixed; background-size: contain;">
+  <table cellpadding="0" cellspacing="0" style="width: 643px;
+            margin: 0px auto;
+            border: transparent;
+            font-family: arial;
+            text-align: left;
+            border-radius: 20px;
+            text-align: left;">
+    <tr>
+      <th colspan="2">
+        <table style="width: 100%; background: #fff; border-top-left-radius: 20px; border-top-right-radius: 20px; padding: 0px;" cellpadding="0" cellspacing="0">
+          <tr><td style="padding: 10px; text-align: center;  background: #ff6600; border-top-left-radius: 20px; border-top-right-radius: 20px"><a href="{{appDomain}}"><img src="cid:{{attach 'support-ticket' 'easyguide.png'}}" width="200px" alt="easyGuide"></a></td></tr>
+          <tr><td style="text-align: center;color: #353534; font-weight: normal; padding: 15px;    line-height: 1.7;">You've got a new support ticket!</td></tr>
+
+          <tr><td style="text-align: center;color: #353534; font-weight: normal; padding-top: 15px; padding-bottom: 5px; line-height: 1.7;">Ticket content:</td></tr>
+
+          <tr>
+            <td>
+              <table style="line-height: 20px; min-width: 65%;  background: #eff1f5; color: #353534; font-weight: bold; padding: 25px 20px;border-radius: 10px; text-align: left; margin:15px auto 30px auto;">
+                <tr><td style="">Sender name: {{user}}</td></tr>
+                <tr><td style="">Sender email: {{email}}</td></tr>
+                <tr><td style="">Sender phone number: {{phoneNumber}}</td></tr>
+                <tr><td style="">Subject: {{subject}}</td></tr>
+                <tr><td style="">Message:</td></tr>
+                <tr><td style="">{{message}}</td></tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </th>
+    </tr>
+    <tr>
+      <td style="background: transparent; color: #fff;">
+        <table cellpadding="0" cellspacing="0" width="100%">
+          <tr>
+            <td style="background: transparent; color: #fff;">
+              <table cellpadding="0" cellspacing="0" width="100%">
+                <tr>
+                  <td style="text-align: center; background: #ff6600; border-bottom-left-radius: 20px; border-bottom-right-radius: 20px; padding: 10px 0">
+                    <a href="{{appDomain}}">
+                      <img src="cid:{{attach 'support-ticket' 'easyguide1.png'}}" width="250px" alt="easyGuide">
+                    </a>
+                  </td>
+                </tr>
+                <tr><td style="font-size: 14px; background: #edf0f6; line-height: 15px; padding-top: 20px; padding-bottom: 5px; text-align: center; color: #000">
+                  10 Ansdell Street, Kensington, London, W8 5BN<br/> hello@easy-guide.co.uk
+                </td></tr>
+                <tr><td style="font-size: 14px; text-align: center; background: #edf0f6">
+                  <table style="margin: auto;">
+                    <tr>
+                      <td style="padding: 10px">
+                        <a href="https://www.facebook.com/easyGuideUK/" style="text-decoration: none;">
+                          <img src="cid:{{attach 'support-ticket' 'face.png'}}" alt="" width="50px" >
+                        </a>
+                        <a href="https://www.instagram.com/easy_guide/">
+                          <img src="cid:{{attach 'support-ticket' 'insta.png'}}" alt="" width="50px" style="text-decoration: none;">
+                        </a>
+                      </td>
+                    </tr>
+                  </table>
+                </td></tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

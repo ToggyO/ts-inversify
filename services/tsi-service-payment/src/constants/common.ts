@@ -1,0 +1,3 @@
+/**
+ * Description: Common application constants
+ */

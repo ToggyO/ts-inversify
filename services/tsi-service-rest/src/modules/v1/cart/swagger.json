@@ -1,0 +1,222 @@
+{
+  "schemas": {
+    "Cart": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "deviceType": {
+          "type": "number"
+        },
+        "tokenId": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "searchLatitude": {
+          "type": "string"
+        },
+        "searchLongitude": {
+          "type": "string"
+        },
+        "startLatitude": {
+          "type": "string"
+        },
+        "startLongitude": {
+          "type": "string"
+        },
+        "endLatitude": {
+          "type": "string"
+        },
+        "endLongitude": {
+          "type": "string"
+        },
+        "status": {
+          "type": "number"
+        },
+        "visibility": {
+          "type": "number"
+        },
+        "itineraryRating": {
+          "type": "number"
+        },
+        "isVisited": {
+          "type": "number"
+        },
+        "isBooked": {
+          "type": "number"
+        },
+        "utmSource": {
+          "type": "string"
+        },
+        "utmMedium": {
+          "type": "string"
+        },
+        "expireAt": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "string"
+        },
+        "itemsOfItineraries": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/CartItem"
+          }
+        }
+      }
+    },
+    "CartItem": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "itineraryId": {
+          "type": "number"
+        },
+        "productId": {
+          "type": "number"
+        },
+        "productName": {
+          "type": "string"
+        },
+        "itineraryDate": {
+          "type": "Date"
+        },
+        "dateTime": {
+          "type": "string"
+        },
+        "variantId": {
+          "type": "number"
+        },
+        "headoutVariantId": {
+          "type": "number"
+        },
+        "variantName": {
+          "type": "string"
+        },
+        "variantItemId": {
+          "type": "number"
+        },
+        "headoutVariantItemId": {
+          "type": "number"
+        },
+        "productOptions": {
+          "type": "string"
+        },
+        "ratingCommentId": {
+          "type": "number"
+        },
+        "imageUrl": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "string"
+        }
+      }
+    },
+    "AddToCartDTO": {
+      "type": "object",
+      "properties": {
+        "itineraryDate": {
+          "type": "string"
+        },
+        "productId": {
+          "type": "number"
+        },
+        "variantId": {
+          "type": "number"
+        },
+        "headoutVariantId": {
+          "type": "number"
+        },
+        "variantName": {
+          "type": "string"
+        },
+        "variantItemId": {
+          "type": "number"
+        },
+        "headoutVariantItemId": {
+          "type": "number"
+        },
+        "slotDateTime": {
+          "type": "string"
+        },
+        "ageGroupOptions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/AgeGroupOptions"
+          }
+        }
+      }
+    },
+    "AgeGroupOptions": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "orderedQty": {
+          "type": "number"
+        },
+        "originalPrice": {
+          "type": "number"
+        },
+        "totalPrice": {
+          "type": "number"
+        },
+        "ageFrom": {
+          "type": "number"
+        },
+        "ageTo": {
+          "type": "number"
+        }
+      }
+    },
+    "CartItemDTO": {
+      "type": "object",
+      "properties": {
+        "itineararyId": {
+          "type": "number"
+        },
+        "itinararyItemId": {
+          "type": "number"
+        },
+        "itineraryDate": {
+          "type": "string"
+        }
+      }
+    },
+    "UpdateCartItemDTO": {
+      "type": "object",
+      "properties": {
+        "itineraryId": {
+          "type": "number"
+        },
+        "itineraryItem": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type":"number"
+            },
+            "ageGroupOptions": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/AgeGroupOptions"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

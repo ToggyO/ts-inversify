@@ -1,0 +1,58 @@
+{
+  "schemas": {
+    "Country": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "name": {
+          "type": "string"
+        },
+        "code": {
+          "type": "string"
+        },
+        "dialCode": {
+          "type": "string"
+        },
+        "currencyName": {
+          "type": "string"
+        },
+        "currencySymbol": {
+          "type": "string"
+        },
+        "currencyCode": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "string"
+        }
+      }
+    },
+    "DialCode": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "dialCode": {
+          "type": "string"
+        }
+      }
+    },
+    "AlphaCode": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "code": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

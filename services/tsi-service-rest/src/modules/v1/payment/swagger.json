@@ -1,0 +1,107 @@
+{
+  "schemas": {
+    "StripeSinglePaymentPayload": {
+      "type": "object",
+      "properties": {
+        "cardToken": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "amount": {
+          "type": "number"
+        },
+        "currency": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        }
+      }
+    },
+    "StripeCustomerPaymentPayload": {
+      "type": "object",
+      "properties": {
+        "stripeCustomerToken": {
+          "type": "string"
+        },
+        "cardId": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "amount": {
+          "type": "number"
+        },
+        "currency": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        }
+      }
+    },
+    "PaymentDTO": {
+      "type": "object",
+      "properties": {
+        "referenceId": {
+          "type": "string"
+        },
+        "totalPaid": {
+          "type": "number"
+        },
+        "userEmail": {
+          "type": "string"
+        },
+        "userPhone": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        }
+      }
+    },
+    "PaymentCardDTO": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "brand": {
+          "type": "string"
+        },
+        "last4digits": {
+          "type": "string"
+        },
+        "expMonth": {
+          "type": "number"
+        },
+        "expYear": {
+          "type": "number"
+        },
+        "customer": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        }
+      }
+    },
+    "AddCardToCustomerDTO": {
+      "type": "object",
+      "properties": {
+        "stripeCustomerToken": {
+          "type": "string"
+        },
+        "cardId": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

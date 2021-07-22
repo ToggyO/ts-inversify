@@ -1,0 +1,34 @@
+{
+  "schemas": {
+    "HeadoutVariant": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "number" },
+        "startDateTime": { "type": "string" },
+        "endDateTime": { "type": "string" },
+        "availability": {
+          "type": "string",
+          "enum": ["LIMITED","UNLIMITED","CLOSED"]
+        },
+        "remaining": { "type": "number" },
+        "pricing": {
+          "type": "object",
+          "properties": {
+            "persons": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/VariantPricing"
+              }
+            },
+            "groups": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

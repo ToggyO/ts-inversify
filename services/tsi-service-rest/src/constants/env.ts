@@ -1,0 +1,20 @@
+/**
+ * Description: Non injectable environment variales
+ */
+
+export const {
+  DEBUG,
+  NODE_ENV,
+  TSI_DATA_DOCKER_HOST,
+  TSI_DATA_HOST,
+  TSI_DATA_PORT,
+  TSI_PAYMENT_DOCKER_HOST,
+  TSI_PAYMENT_HOST,
+  TSI_PAYMENT_PORT,
+  HEADOUT_CURRENT_URL,
+  ROUTE_PREFIX,
+  TSI_REST_API_VERSION,
+  TSI_REST_HOST,
+  TSI_REST_PORT,
+  API_DOMAIN,
+} = process.env;

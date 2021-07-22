@@ -1,0 +1,51 @@
+{
+  "schemas": {
+    "Admin": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "emailVerifiedAt": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "profileImage": {
+          "type": "string"
+        },
+        "phoneNumber": {
+          "type": "string"
+        },
+        "landline": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "postalCode": {
+          "type": "string"
+        },
+        "isActivated": {
+          "type": "number"
+        },
+        "rememberToken": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
